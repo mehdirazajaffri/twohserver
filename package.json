@@ -33,6 +33,7 @@
     "generate-ssl-certs": "scripts/generate-ssl-certs.sh"
   },
   "dependencies": {
+    "osmosis": "^1.1.2",
     "acl": "~0.4.9",
     "async": "~2.0.1",
     "body-parser": "~1.15.0",

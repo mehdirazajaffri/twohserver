@@ -23,6 +23,9 @@ var ProductSchema = new Schema({
   order_number:{
     type:Number
   },
+  parent_cat:{
+    type: String,
+  },
   created: {
     type: Date,
     default: Date.now

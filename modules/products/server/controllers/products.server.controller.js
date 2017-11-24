@@ -18,6 +18,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var product = new Product(req.body);
+  console.log(req.body)
   product.user = req.user;
   if (!product.order_number) {
       Product.count({}, function (err, count) {

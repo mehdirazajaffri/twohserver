@@ -17,12 +17,13 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
 
-  function scrp(url, price, dis, img){
+  function scrp(url, price, dis, img, title){
     if(url == 'err'){
       res.jsonp({
         'price':    '',
         'dis' :   '',
-        'img' : ''
+        'img' : '',
+        'title' : ''
       });
       }
       else{
@@ -31,7 +32,8 @@ exports.create = function(req, res) {
         .set({
             'price':    price,
             'dis' :   dis,
-            'img' : img
+            'img' : img,
+            'title' : title
         }) 
         .data(function(listing) {
             console.log('listung', listing)
@@ -45,7 +47,8 @@ exports.create = function(req, res) {
               res.json({
                 'price':    '',
                 'dis' :   '',
-                'img' : ''
+                'img' : '',
+                'title' : ''
               });
             }
             
@@ -65,13 +68,13 @@ exports.create = function(req, res) {
       scrp(scrapper.url, '#psp-sale-price', '.psp-product-color', '#carousel-inner > .item-img[1] img@src')
       break;
     case 'www.amazon.com' : 
-      scrp(scrapper.url, '#priceblock_ourprice', '#variation_color_name .selection', '.itemNo0 #landingImage@src');
+      scrp(scrapper.url, '#priceblock_ourprice', '#variation_color_name .selection', '.itemNo0 #landingImage@src', '#productTitle');
       break;
     case 'www.amazon.co.uk' : 
       scrp(scrapper.url, '#priceblock_ourprice', '#variation_color_name .selection', '.itemNo0 #landingImage@src');
       break;
     default :
-      scrp('err', '', '', '')
+      scrp('err', '', '', '','')
   }
   
 };

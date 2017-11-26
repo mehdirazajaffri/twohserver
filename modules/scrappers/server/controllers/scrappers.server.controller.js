@@ -12,9 +12,7 @@ var path = require('path'),
   URL = require('url');
   const url = require('url');
   
-/**
- * Create a Scrapper
- */
+
 exports.create = function(req, res) {
 
   function scrp(url, price, dis, img, title){

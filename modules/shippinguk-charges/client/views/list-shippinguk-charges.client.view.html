@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Shippinguk charges</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="shippinguk-charge in vm.shippingukCharges"
+       ui-sref="shippingukCharges.view({ shippinguk-chargeId: shippinguk-charge._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="shippingukCharge.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="shippingukCharge.user" ng-bind="shippingukCharge.user.displayName"></span>
+        <span ng-if="!shippingukCharge.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="shippinguk-charge.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.shippingukCharges.$resolved && !vm.shippingukCharges.length">
+    No Shippinguk charges yet, why don't you <a ui-sref="shippingukCharges.create">create one</a>?
+  </div>
+</section>

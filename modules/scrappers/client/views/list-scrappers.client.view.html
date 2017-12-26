@@ -1,0 +1,22 @@
+<section>
+  <div class="page-header">
+    <h1>Scrappers</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="scrapper in vm.scrappers"
+       ui-sref="scrappers.view({ scrapperId: scrapper._id })"
+       class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="scrapper.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="scrapper.user" ng-bind="scrapper.user.displayName"></span>
+        <span ng-if="!scrapper.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="scrapper.name"></h4>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.scrappers.$resolved && !vm.scrappers.length">
+    No Scrappers yet, why don't you <a ui-sref="scrappers.create">create one</a>?
+  </div>
+</section>
